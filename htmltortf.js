@@ -8,8 +8,10 @@ if (process.argv.length < 4) {
 const inFolder = process.argv[2];
 const outFolder = process.argv[3];
 
-//your api key goes here
-const apikey = "LbtyfBj-g47fhfIUzqZEff1sWW0A6K2urhjlLjkfd0220ZZoa-3otIWLkRfdFFhaEab-b_duhPDV-F5zNh6npw"
+//get api key from json file
+var parsedJSON = require('./key.json');
+var apikey = parsedJSON.key;
+console.log(apikey);
 
 //adding in a string function
 if (typeof String.prototype.endsWith !== 'function') {
