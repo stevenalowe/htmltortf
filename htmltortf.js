@@ -53,11 +53,11 @@ function makeDirectorySync(directory) {
 //scan folder and subfolders; convert .html files to .rtf; copy all other files and folders
 function processDirectory(inFolder,outFolder) {
   console.log("processDirectory",inFolder,outFolder);
-  fs.readdir(inFolder, (err, files) => {
+    makeDirectorySync(outFolder);
+    fs.readdir(inFolder, (err, files) => {
     files.forEach(infile => {
       //recurse if necessary
       if (fs.statSync(inFolder+infile).isDirectory()) {
-        makeDirectorySync(outFolder+infile);
         processDirectory(inFolder+infile+"/",outFolder+infile+"/");
       }
       //convert html to rtf
